@@ -17,14 +17,19 @@ import {
   Folder,
   Gauge,
   ListChevronsUpDown,
+  Eye,
+  PenLine,
 } from 'lucide-react';
 import { Banner } from '../components/Banner';
+import { MarkdownPreview } from '../components/MarkdownPreview';
 import { PopoverMenu } from '../components/PopoverMenu';
 import { useClipboard } from '../hooks/useClipboard';
 import { useTimedFlag } from '../hooks/useTimedFlag';
 import { useFormDirtyGuard } from '../hooks/useFormDirtyGuard';
 
 type ActiveToolbarMenu = 'prompt' | 'context' | 'temperature' | 'length' | null;
+
+type GeneratedViewMode = 'preview' | 'editor';
 
 interface WorkspacePageProps {
   workspace: WorkspaceState;
@@ -72,6 +77,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
 
   // Generated content state
   const [generatedContent, setGeneratedContent] = useState<string>('');
+  const [generatedViewMode, setGeneratedViewMode] = useState<GeneratedViewMode>('preview');
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -667,26 +673,56 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
 
         {/* BOTTOM SECTION: "Generated Content" */}
         <section ref={draftSectionRef} className="section-card space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-3">
             <h2 className="section-title !mb-0">{t.generatedContent}</h2>
+
+            {/* Preview / Editor toggle (top right corner) */}
+            <div className="segmented-group segmented-group-sm" role="tablist" aria-label={t.generatedContent}>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={generatedViewMode === 'preview'}
+                onClick={() => setGeneratedViewMode('preview')}
+                className={generatedViewMode === 'preview' ? 'segmented-btn-active' : 'segmented-btn'}
+              >
+                <Eye className="w-3.5 h-3.5 mr-1 shrink-0" />
+                <span>{t.previewMode}</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={generatedViewMode === 'editor'}
+                onClick={() => setGeneratedViewMode('editor')}
+                className={generatedViewMode === 'editor' ? 'segmented-btn-active' : 'segmented-btn'}
+              >
+                <PenLine className="w-3.5 h-3.5 mr-1 shrink-0" />
+                <span>{t.editorMode}</span>
+              </button>
+            </div>
           </div>
 
-          <div className="relative rounded-lg bg-white border-2 border-dashed border-neutral-300 focus-within:border-solid focus-within:border-neutral-900 transition-colors">
-            <textarea
-              value={generatedContent}
-              onChange={(e) => setGeneratedContent(e.target.value)}
-              disabled={!hasKey}
-              rows={12}
-              className="w-full bg-transparent p-4 sm:p-5 text-sm sm:text-base leading-relaxed text-neutral-900 outline-none resize-vertical rounded-lg"
-            />
-            {!generatedContent && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none p-4 text-center">
-                <p className="text-sm font-medium text-neutral-400">
-                  {t.draftPlaceholder}
-                </p>
-              </div>
-            )}
-          </div>
+          {generatedViewMode === 'editor' ? (
+            <div className="relative rounded-lg bg-white border-2 border-dashed border-neutral-300 focus-within:border-solid focus-within:border-neutral-900 transition-colors">
+              <textarea
+                value={generatedContent}
+                onChange={(e) => setGeneratedContent(e.target.value)}
+                disabled={!hasKey}
+                rows={12}
+                className="w-full bg-transparent p-4 sm:p-5 text-sm sm:text-base leading-relaxed text-neutral-900 outline-none resize-vertical rounded-lg"
+              />
+              {!generatedContent && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none p-4 text-center">
+                  <p className="text-sm font-medium text-neutral-400">
+                    {t.draftPlaceholder}
+                  </p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="rounded-lg bg-white border-2 border-dashed border-neutral-300 p-4 sm:p-5 min-h-[288px] max-h-[560px] overflow-y-auto">
+              <MarkdownPreview content={generatedContent} placeholder={t.draftPlaceholder} />
+            </div>
+          )}
 
           {/* Row with Refine Buttons (Shorter, Expand, Summarize) and Copy Button */}
           <div className="flex flex-wrap items-center justify-between gap-3 pt-2">

@@ -59,6 +59,8 @@ export interface Translations {
     generateBtn: string;
     generatingBtn: string;
     generatedContent: string;
+    previewMode: string;
+    editorMode: string;
     draftPlaceholder: string;
     refine: string;
     shorter: string;
@@ -273,6 +275,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
       generateBtn: 'Generate (Ctrl+Enter)',
       generatingBtn: 'Generating...',
       generatedContent: 'Generated Content',
+      previewMode: 'Preview',
+      editorMode: 'Editor',
       draftPlaceholder: 'Generated draft will appear here',
       refine: 'Refine:',
       shorter: 'Shorter',
@@ -480,6 +484,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
       generateBtn: '生成 (Ctrl+Enter)',
       generatingBtn: '正在生成...',
       generatedContent: '生成內容',
+      previewMode: '預覽',
+      editorMode: '編輯',
       draftPlaceholder: '生成的內容將在此處顯示',
       refine: '潤飾：',
       shorter: '更簡短',
@@ -687,6 +693,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
       generateBtn: '生成 (Ctrl+Enter)',
       generatingBtn: '正在生成...',
       generatedContent: '生成内容',
+      previewMode: '预览',
+      editorMode: '编辑',
       draftPlaceholder: '生成的内容将在此处显示',
       refine: '微调：',
       shorter: '更简短',
