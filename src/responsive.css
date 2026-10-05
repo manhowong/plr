@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Responsive Stylesheet (responsive.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Desktop Default Rules (> 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) {
+  .sidebar-mobile-toggle {
+    display: none !important;
+  }
+
+  .sidebar-collapsible {
+    display: flex !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablet & Mobile Layout Adjustments (max-width: 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Main App Container: Switch from horizontal split to vertical stack */
+  body > #root > div.min-h-screen,
+  div.min-h-screen.flex {
+    flex-direction: column !important;
+  }
+
+  /* Left Panel (Sidebar): Turn into a sticky top navigation header */
+  aside.sidebar-container,
+  aside.w-60 {
+    width: 100% !important;
+    height: auto !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border-default) !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Full screen expansion when menu is open */
+  aside.sidebar-container.menu-open {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    z-index: 100 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Header row with Brand & Hamburger toggle */
+  .sidebar-header {
+    padding: 0.75rem 1rem !important;
+  }
+
+  /* Hamburger toggle is visible on mobile */
+  .sidebar-mobile-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Collapsible Navigation Menu */
+  .sidebar-collapsible:not(.open) {
+    display: none !important;
+  }
+
+  .sidebar-collapsible.open {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 1 0% !important;
+    height: calc(100vh - 57px) !important;
+    height: calc(100dvh - 57px) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    background-color: #ffffff !important;
+    border-top: 1px solid var(--color-border-subtle) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .sidebar-collapsible.open > div:first-child {
+    padding: 1rem 1rem 0.5rem 1rem !important;
+  }
+
+  /* Language toggle inside mobile menu */
+  .sidebar-lang-section {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .sidebar-lang-section .segmented-group {
+    width: 100% !important;
+  }
+
+  .sidebar-lang-section .segmented-btn,
+  .sidebar-lang-section .segmented-btn-active {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Navigation Links inside mobile menu */
+  .sidebar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+  }
+
+  .sidebar-nav > a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    padding: 0.625rem 0.875rem !important;
+    font-size: 0.9375rem !important;
+    border-radius: var(--radius-sm) !important;
+    min-height: 44px !important;
+  }
+
+  /* Status Section inside mobile menu */
+  .sidebar-collapsible.open .sidebar-status {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0.875rem 1rem !important;
+    background-color: #ffffff !important;
+    border-top: 1px solid var(--color-border-default) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Main scroll area on mobile */
+  main.flex-1 {
+    min-height: calc(100vh - 60px) !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Page Containers */
+  .page-container-wide,
+  .page-container-medium,
+  .page-container-split {
+    padding: 1.125rem 1rem !important;
+  }
+
+  .page-container-wide > * + *,
+  .page-container-medium > * + *,
+  .page-container-split > * + * {
+    margin-top: 1.125rem !important;
+  }
+
+  /* Cards */
+  .section-card {
+    padding: 1.125rem 1rem !important;
+  }
+
+  .section-card-sm {
+    padding: 0.875rem !important;
+  }
+
+  /* Heading sizes */
+  .page-title {
+    font-size: 1.25rem !important;
+    line-height: 1.625rem !important;
+  }
+
+  /* Workspace Bottom Action Bar (Tone Options + Generate Button) */
+  .section-card .flex.justify-between.items-center:not(.section-header),
+  .section-card .flex-col.sm\:flex-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .section-card .btn-primary.shrink-0 {
+    width: 100% !important;
+    padding: 0.625rem 1rem !important;
+    font-size: 0.875rem !important;
+    justify-content: center !important;
+  }
+
+  /* Refine bar under Generated Draft */
+  .section-card .flex.flex-wrap.items-center.justify-between.gap-3 {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .section-card .flex.flex-wrap.items-center.justify-between.gap-3 > button.btn-primary {
+    width: 100% !important;
+    padding: 0.625rem 1rem !important;
+    font-size: 0.875rem !important;
+    justify-content: center !important;
+  }
+
+  /* Templates Page List & Editor on Mobile */
+  .md\:col-span-4 .space-y-1.max-h-\[460px\] {
+    max-height: 200px !important;
+  }
+
+  .md\:col-span-8 .flex.flex-col.sm\:flex-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.625rem !important;
+  }
+
+  .md\:col-span-8 .flex.items-center.gap-2 {
+    justify-content: flex-end !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Touch targets for interactive buttons */
+  .btn-chip,
+  .btn-chip-active {
+    min-height: 2.25rem !important;
+    touch-action: manipulation !important;
+  }
+
+  /* Segmented buttons */
+  .segmented-group {
+    height: 2.25rem !important;
+  }
+  .segmented-btn,
+  .segmented-btn-active {
+    font-size: 0.875rem !important;
+    touch-action: manipulation !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Small Mobile Devices (max-width: 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .page-container-wide,
+  .page-container-medium,
+  .page-container-split {
+    padding: 0.875rem 0.75rem !important;
+  }
+
+  .section-card {
+    padding: 0.875rem !important;
+  }
+
+  /* Inputs and textareas */
+  .form-input,
+  .form-select {
+    font-size: 0.875rem !important;
+    padding: 0.5rem 0.625rem !important;
+  }
+
+  .form-textarea {
+    font-size: 0.875rem !important;
+    padding: 0.625rem !important;
+  }
+
+  /* Banner Warning & Error */
+  .banner-warning {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+
+  .banner-warning button {
+    margin-left: 0 !important;
+  }
+
+  /* Keyboard shortcut rows in Help */
+  .divide-y > div.flex.justify-between {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.375rem !important;
+  }
+
+  /* Code block copy buttons */
+  pre {
+    font-size: 0.75rem !important;
+    line-height: 1.25rem !important;
+  }
+}

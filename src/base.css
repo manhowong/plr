@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Base Design Tokens & Core Element Styles
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Neutrals & Off-white */
+  --color-bg-app: #f8f9fa;          /* off-white background for pages */
+  --color-bg-surface: #ffffff;
+  --color-bg-muted: #f4f5f7;
+  --color-bg-subtle: #f8f9fa;
+  --color-bg-hover: #f1f2f4;
+  --color-bg-active: #e5e7eb;
+
+  /* Borders */
+  --color-border-subtle: #e5e7eb;
+  --color-border-default: #d3d5d7;
+  --color-border-strong: #d1d5db;
+  --color-border-focus: #18181b;
+
+  /* Typography Colors */
+  --color-text-heading: #111827;
+  --color-text-body: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #666c76;
+  --color-text-placeholder: #686d77;
+
+  /* Primary Button / Active Elements */
+  --color-primary-bg: #18181b;
+  --color-primary-hover: #27272a;
+  --color-primary-text: #ffffff;
+
+  /* Warning Colors */
+  --color-warning-bg: #fffbeb;      /* amber-50 */
+  --color-warning-border: #fde68a;  /* amber-200 */
+  --color-warning-text: #92400e;    /* amber-800 */
+
+  /* Danger / Delete Colors */
+  --color-danger-bg: #fef2f2;       /* red-50 */
+  --color-danger-border: #fecaca;   /* red-200 */
+  --color-danger-text: #991b1b;     /* red-800 */
+  --color-danger-solid: #dc2626;    /* red-600 */
+  --color-danger-solid-hover: #b91c1c; /* red-700 */
+
+  /* Radii */
+  --radius-sm: 0.375rem;             /* 6px */
+  --radius-md: 0.5rem;              /* 8px */
+  --radius-lg: 0.75rem;             /* 12px */
+
+  /* Font Families */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base resets & typography */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body, button, input, select, textarea {
+  font-family: var(--font-sans);
+}
+
+/* scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}

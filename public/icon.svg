@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="128" fill="#0f172a"/>
+  <!-- Minimalist Drawing of Dialog (White) -->
+  <!-- Primary Dialog Bubble (Left/User) -->
+  <path d="M 124 136 H 294 A 28 28 0 0 1 322 164 V 256 A 28 28 0 0 1 294 284 H 178 L 128 328 V 284 H 124 A 28 28 0 0 1 96 256 V 164 A 28 28 0 0 1 124 136 Z" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="148" y1="192" x2="270" y2="192" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+  <line x1="148" y1="230" x2="224" y2="230" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+
+  <!-- Secondary Dialog Bubble (Right/Assistant) -->
+  <path d="M 252 236 H 388 A 28 28 0 0 1 416 264 V 356 A 28 28 0 0 1 388 384 H 384 V 426 L 334 384 H 252 A 28 28 0 0 1 224 356 V 324" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="272" y1="292" x2="368" y2="292" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+  <line x1="272" y1="330" x2="330" y2="330" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+</svg>
