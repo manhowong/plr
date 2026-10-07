@@ -11,7 +11,7 @@ import { SupportedLanguage, TRANSLATIONS } from '../i18n/translations';
 import {
   Copy,
   Check,
-  Wand2,
+  Wand,
   Plus,
   MessageCircleMore,
   Folder,
@@ -375,7 +375,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                   type="button"
                   disabled={!hasKey}
                   onClick={() => setActiveMenu((prev) => (prev === 'context' ? null : 'context'))}
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-xs font-medium border transition-colors cursor-pointer ${
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-sm font-medium border transition-colors cursor-pointer ${
                     activeMenu === 'context'
                       ? 'bg-neutral-200 border-neutral-200 text-neutral-950'
                       : 'bg-white border-neutral-300 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-950'
@@ -394,13 +394,13 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                   <div className="p-1 space-y-1">
 
                     {workspace.context.length === 0 ? (
-                      <p className="text-xs text-neutral-400 px-2 py-3">
+                      <p className="text-sm text-neutral-400 px-2 py-3">
                         {t.noContextFiles}
                       </p>
                     ) : (
                     <div>
                       <div className="flex items-center justify-between px-2 py-1">
-                        <div className="flex items-center gap-1.5 text-xs">
+                        <div className="flex items-center gap-1.5 text-sm">
                           <button
                             type="button"
                             onClick={handleSelectAllContext}
@@ -425,7 +425,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                           return (
                             <label
                               key={file.name}
-                              className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-neutral-50 cursor-pointer text-xs transition-colors"
+                              className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-neutral-50 cursor-pointer text-sm transition-colors"
                             >
                               <input
                                 type="checkbox"
@@ -433,7 +433,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                                 onChange={() => handleToggleContextFile(file.name)}
                                 className="accent-neutral-900 w-3.5 h-3.5 rounded cursor-pointer"
                               />
-                              <span className="font-mono truncate flex-1 text-neutral-800">{file.name}</span>
+                              <span className="font-mono truncate flex-1 text-neutral-900">{file.name}</span>
                             </label>
                           );
                         })}
@@ -449,7 +449,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                         setActiveMenu(null);
                         onNavigateToContextPrompts('context');
                       }}
-                      className="w-full text-left px-2 py-1.5 rounded text-xs text-neutral-900 hover:bg-neutral-50 flex items-center gap-1.5 cursor-pointer font-medium"
+                      className="w-full text-left px-2 py-1.5 rounded text-sm text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 flex items-center gap-1.5 cursor-pointer"
                     >
                       <Plus className="w-3 h-3 shrink-0" />
                       <span>{t.addContextFilesOption}</span>
@@ -465,7 +465,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                   type="button"
                   disabled={!hasKey}
                   onClick={() => setActiveMenu((prev) => (prev === 'prompt' ? null : 'prompt'))}
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-xs font-medium border transition-colors cursor-pointer ${
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-sm font-medium border transition-colors cursor-pointer ${
                     activeMenu === 'prompt'
                       ? 'bg-neutral-200 border-neutral-200 text-neutral-950'
                       : 'bg-white border-neutral-300 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-950'
@@ -483,7 +483,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                 >
                   <div className="p-1 space-y-1">
                     {workspace.prompts.length === 0 ? (
-                      <p className="text-xs text-neutral-400 px-2 py-3">
+                      <p className="text-sm text-neutral-400 px-2 py-3">
                         {t.noSavedPrompts}
                       </p>
                     ) : (
@@ -493,7 +493,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                             key={p.name}
                             type="button"
                             onClick={() => handleAppendPrompt(p)}
-                            className="w-full text-left px-2 py-1.5 rounded hover:bg-neutral-100 text-xs text-neutral-800 transition-colors flex items-center justify-between cursor-pointer"
+                            className="w-full text-left px-2 py-1.5 rounded hover:bg-neutral-100 text-sm text-neutral-900 transition-colors flex items-center justify-between cursor-pointer"
                           >
                             <span className="truncate">{p.name.replace(/\.md$/, '')}</span>
                           </button>
@@ -509,7 +509,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                         setActiveMenu(null);
                         onNavigateToContextPrompts('prompts');
                       }}
-                      className="w-full text-left px-2 py-1.5 rounded text-xs text-neutral-900 hover:bg-neutral-50 flex items-center gap-1.5 cursor-pointer font-medium"
+                      className="w-full text-left px-2 py-1.5 rounded text-sm text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 flex items-center gap-1.5 cursor-pointer"
                     >
                       <Plus className="w-3 h-3 shrink-0" />
                       <span>{t.createReusablePrompt}</span>
@@ -525,7 +525,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                   type="button"
                   disabled={!hasKey}
                   onClick={() => setActiveMenu((prev) => (prev === 'temperature' ? null : 'temperature'))}
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-xs font-medium border transition-colors cursor-pointer ${
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-sm font-medium border transition-colors cursor-pointer ${
                     activeMenu === 'temperature'
                       ? 'bg-neutral-200 border-neutral-200 text-neutral-950'
                       : 'bg-white border-neutral-300 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-950'
@@ -557,7 +557,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                           setTemperature(opt.value);
                           setActiveMenu(null);
                         }}
-                        className={`w-full text-left px-2.5 py-1.5 rounded flex items-center justify-between text-xs transition-colors cursor-pointer ${
+                        className={`w-full text-left px-2.5 py-1.5 rounded flex items-center justify-between text-sm transition-colors cursor-pointer ${
                           Math.abs(temperature - opt.value) < 0.01
                             ? 'bg-neutral-100 font-semibold text-neutral-950'
                             : 'hover:bg-neutral-50 text-neutral-700'
@@ -580,7 +580,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                   type="button"
                   disabled={!hasKey}
                   onClick={() => setActiveMenu((prev) => (prev === 'length' ? null : 'length'))}
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-xs font-medium border transition-colors cursor-pointer ${
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-sm font-medium border transition-colors cursor-pointer ${
                     activeMenu === 'length'
                       ? 'bg-neutral-200 border-neutral-200 text-neutral-950'
                       : 'bg-white border-neutral-300 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-950'
@@ -609,7 +609,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                           setLengthIndex(opt.id);
                           setActiveMenu(null);
                         }}
-                        className={`w-full text-left px-2.5 py-1.5 rounded flex items-center justify-between text-xs transition-colors cursor-pointer ${
+                        className={`w-full text-left px-2.5 py-1.5 rounded flex items-center justify-between text-sm transition-colors cursor-pointer ${
                           lengthIndex === opt.id
                             ? 'bg-neutral-100 font-semibold text-neutral-950'
                             : 'hover:bg-neutral-50 text-neutral-700'
@@ -665,7 +665,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
               disabled={isGenerating || !canGenerate}
               className="btn-primary shrink-0 inline-flex items-center gap-1.5"
             >
-              <Wand2 className="w-4 h-4 shrink-0" />
+              <Wand className="w-4 h-4 shrink-0" />
               <span>{isGenerating ? t.generatingBtn : t.generateBtn}</span>
             </button>
           </div>
@@ -677,7 +677,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
             <h2 className="section-title !mb-0">{t.generatedContent}</h2>
 
             {/* Preview / Editor toggle (top right corner) */}
-            <div className="segmented-group segmented-group-sm" role="tablist" aria-label={t.generatedContent}>
+            <div className="segmented-group segmented-group-sm max-w-max" role="tablist" aria-label={t.generatedContent}>
               <button
                 type="button"
                 role="tab"
